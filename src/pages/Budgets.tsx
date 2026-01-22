@@ -59,17 +59,19 @@ export const BudgetsPage = () => {
 
                         return (
                             <div key={cat.id} className="bg-white dark:bg-black rounded-xl border border-stone-200 dark:border-stone-800 p-8 flex flex-col gap-4 shadow-sm hover:border-stone-300 dark:hover:border-stone-700 transition-colors">
-                                <div className="flex items-center justify-between">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                     <div className="flex items-center gap-4">
                                         <div className="h-12 w-12 rounded-full bg-stone-100 dark:bg-stone-900 flex items-center justify-center text-stone-700 dark:text-stone-300">
                                             <Icon size={24} strokeWidth={1.5} />
                                         </div>
-                                        <h3 className="text-xl font-medium text-stone-900 dark:text-stone-100">{cat.name}</h3>
+                                        <h3 className="text-xl font-medium text-stone-900 dark:text-stone-100 break-words">{cat.name}</h3>
                                     </div>
-                                    <div className="text-right">
-                                        <span className="text-xl font-mono text-stone-900 dark:text-stone-200">{formatCurrency(amount)}</span>
-                                        <span className="text-stone-400 text-base font-mono mx-2">/</span>
-                                        <span className="text-stone-500 text-base font-mono">{formatCurrency(limit)}</span>
+                                    <div className="text-left sm:text-right">
+                                        <div className="flex flex-wrap items-baseline gap-2 sm:justify-end">
+                                            <span className="text-xl font-mono text-stone-900 dark:text-stone-200">{formatCurrency(amount)}</span>
+                                            <span className="text-stone-400 text-base font-mono">/</span>
+                                            <span className="text-stone-500 text-base font-mono">{formatCurrency(limit)}</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -93,7 +95,7 @@ export const BudgetsPage = () => {
                         // Income View (Simple Tracking)
                         return (
                             <div key={cat.id} className="bg-white dark:bg-black rounded-xl border border-stone-200 dark:border-stone-800 p-8 flex flex-col gap-4 shadow-sm hover:border-stone-300 dark:hover:border-stone-700 transition-colors">
-                                <div className="flex items-center justify-between">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                     <div className="flex items-center gap-4">
                                         <div className="h-12 w-12 rounded-full bg-stone-100 dark:bg-stone-900 flex items-center justify-center text-stone-700 dark:text-stone-300">
                                             <Icon size={24} strokeWidth={1.5} />
@@ -103,7 +105,7 @@ export const BudgetsPage = () => {
                                             <p className="text-stone-500 text-sm">Income Source</p>
                                         </div>
                                     </div>
-                                    <div className="text-right">
+                                    <div className="text-left sm:text-right">
                                         <span className="text-2xl font-mono text-stone-900 dark:text-stone-100">{formatCurrency(amount)}</span>
                                         <p className="text-stone-400 text-sm mt-1">earned this month</p>
                                     </div>

@@ -179,23 +179,23 @@ export const Dashboard = () => {
             const Icon = getCategoryIcon(category?.icon);
 
             return (
-              <div key={t.id} className="flex items-center justify-between py-5 px-4 bg-white dark:bg-stone-950 border border-stone-100 dark:border-stone-900 rounded-xl hover:border-stone-300 dark:hover:border-stone-700 transition-colors">
-                <div className="flex items-center gap-6">
-                  <div className="w-16 text-sm text-stone-500 font-mono">
+              <div key={t.id} className="flex items-center justify-between py-5 px-4 bg-white dark:bg-stone-950 border border-stone-100 dark:border-stone-900 rounded-xl hover:border-stone-300 dark:hover:border-stone-700 transition-colors gap-3 sm:gap-4">
+                <div className="flex items-center gap-3 sm:gap-6 min-w-0">
+                  <div className="w-14 sm:w-16 text-xs sm:text-sm text-stone-500 font-mono shrink-0">
                     {new Date(t.date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }).toUpperCase()}
                   </div>
 
                   {/* Category Icon */}
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-stone-100 dark:bg-stone-900 text-stone-600 dark:text-stone-300">
+                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-stone-100 dark:bg-stone-900 text-stone-600 dark:text-stone-300 shrink-0">
                     <Icon size={18} />
                   </div>
 
-                  <div>
-                    <p className="text-lg font-medium text-stone-900 dark:text-stone-200">{t.description}</p>
-                    <p className="text-xs text-stone-500">{category?.name}</p>
+                  <div className="min-w-0">
+                    <p className="text-lg font-medium text-stone-900 dark:text-stone-200 truncate">{t.description}</p>
+                    <p className="text-xs text-stone-500 truncate">{category?.name}</p>
                   </div>
                 </div>
-                <span className={`text-lg font-mono ${t.type === 'income' ? 'text-stone-900 dark:text-white' : 'text-stone-500 dark:text-stone-400'}`}>
+                <span className={`text-lg font-mono shrink-0 ${t.type === 'income' ? 'text-stone-900 dark:text-white' : 'text-stone-500 dark:text-stone-400'}`}>
                   {t.type === 'income' ? '+' : '-'}{formatCurrency(t.amount)}
                 </span>
               </div>
